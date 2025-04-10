@@ -1,41 +1,108 @@
+/* General page styling */
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
 }
 
-#container {
+/* Main container centered vertically and horizontally */
+.main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bootstrap container override */
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Player styling */
+.player {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Video and avatar wrapper */
+.video-wrapper {
     position: relative;
-    display: inline-block;
+    width: 100%;
 }
 
-#sigmlPlayerContainer {
+/* Style for the video element */
+#videoElement {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Avatar floating in bottom-right */
+.corner-avatar {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #ddd;
-    cursor: grab;
+    width: 180px;
+    height: 180px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    z-index: 10;
+    object-fit: contain;
+    pointer-events: none;
 }
 
-#sigmlAvatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+/* Hidden input for SiGML URL */
+.txtSiGMLURL {
+    display: none;
 }
 
-.controls {
+/* Play/Pause button styling */
+.text-center {
     margin-top: 20px;
 }
 
-button {
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
+button.btn {
+    width: 130px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
-button:hover {
-    background-color: #ccc;
+/* Play and Pause button base styles */
+.btn-play,
+.btn-pause {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-play:hover,
+.btn-pause:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .corner-avatar {
+        width: 120px;
+        height: 120px;
+        bottom: 6px;
+        right: 6px;
+    }
+
+    button.btn {
+        width: 110px;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

@@ -1,0 +1,19 @@
+#about {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  #about .container {
+    max-width: 900px;
+  }
+  
+  #about h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  #about p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  

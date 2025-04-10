@@ -73,20 +73,6 @@
             line-height: 20px;
             font-size: 12px;
         }
-        .loading-spinner {
-            display: none;
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.2);
-            border-top: 4px solid #007bff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body onload="CWASA.init(initCfg);">
@@ -97,7 +83,8 @@
         };
 
         function syncPlay() {
-            document.getElementById("videoPlayer").play();
+            let video = document.getElementById("videoPlayer");
+            video.play();
             CWASA.playSiGMLURL("{{ url_for('static', filename='SignFiles/sample.sigml') }}");
         }
 
@@ -107,47 +94,12 @@
         }
 
         $(document).ready(function() {
-            // Make the SiGML player draggable
             $("#sigmlPlayerContainer").draggable();
-
-            // Handle resizable player
             $("#resizeButton").click(function() {
                 let player = $("#sigmlPlayerContainer");
-                let currentSize = player.width();
-                let newSize = currentSize === 200 ? 300 : 200; // Toggle between 200px and 300px
-                player.width(newSize);
-                player.height(newSize);
+                let newSize = player.width() === 200 ? 300 : 200;
+                player.width(newSize).height(newSize);
             });
-
-            // Show loading spinner until SiGML player loads
-            $("#sigmlPlayer").on("load", function() {
-                $(".loading-spinner").hide();
-            }).on("error", function() {
-                $(".loading-spinner").hide();
-                alert("Failed to load SiGML Player.");
-            });
-
-            $(".loading-spinner").show(); // Show spinner on page load
-        });
-
-        document.addEventListener("fullscreenchange", function() {
-            let videoContainer = document.getElementById("container");
-            let sigmlPlayer = document.getElementById("sigmlPlayerContainer");
-
-            if (document.fullscreenElement) {
-                // If fullscreen, move SiGML inside the fullscreen container
-                videoContainer.appendChild(sigmlPlayer);
-                sigmlPlayer.style.position = "absolute";
-                sigmlPlayer.style.bottom = "10px";
-                sigmlPlayer.style.right = "10px";
-                sigmlPlayer.style.zIndex = "1000"; // Ensure it's above other elements
-            } else {
-                // Restore SiGML player position when exiting fullscreen
-                document.body.appendChild(sigmlPlayer);
-                sigmlPlayer.style.position = "absolute";
-                sigmlPlayer.style.bottom = "50px";
-                sigmlPlayer.style.right = "10px";
-            }
         });
     </script>
 
@@ -163,8 +115,6 @@
             <iframe id="sigmlPlayer" src="{{ url_for('sigml_player') }}"></iframe>
             <button id="resizeButton">+</button>
         </div>
-        
-        <div class="loading-spinner"></div>
     </div>
     
     <!-- Play/Pause Controls -->

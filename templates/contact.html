@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2b2b2b;
+    }
+
+    .contact-section p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    .contact-info {
+      margin-top: 50px;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      margin: 10px 20px;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #007BFF;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-section h2 {
+        font-size: 2rem;
+      }
+      .contact-info a {
+        display: block;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Contact Us Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, suggestions, or feedback, feel free to reach out. We’d love to hear from you!</p>
+    
+    <form class="contact-form" action="#" method="post">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <a href="mailto:contact@signbridge.com"><i class="fas fa-envelope"></i>contact@signbridge.com</a>
+      <a href="tel:+919876543210"><i class="fas fa-phone"></i>+91 98765 43210</a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+    </div>
+  </section>
+
+</body>
+</html>

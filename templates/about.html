@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Sign Bridge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .about-section {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    .about-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #2b2b2b;
+    }
+
+    .about-section p {
+      font-size: 1.05rem;
+      color: #4a4a4a;
+      max-width: 900px;
+      margin: 15px auto;
+      line-height: 1.7;
+    }
+
+    .about-section strong {
+      color: #007BFF;
+    }
+
+    .about-section em {
+      font-style: italic;
+      color: #555;
+    }
+
+    .about-section .citation {
+      margin-top: 30px;
+      color: #888;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-section h2 {
+        font-size: 2rem;
+      }
+
+      .about-section p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- About Us Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        <strong>Sign Bridge</strong> is an innovative educational platform developed to support the learning needs of the deaf and hard-of-hearing community. It is powered by <strong>SiGML</strong> (Sign Gesture Markup Language) and integrates natural language processing, gesture recognition, and animated sign language avatars to deliver educational content in a fully visual and accessible format.
+      </p>
+      
+      <p>
+        This project originated from an academic research initiative presented in our <strong>IEEE conference paper</strong>, where we explored how advanced technologies like <strong>HamNoSys</strong> and <strong>SiGML</strong> can be applied to generate accurate Indian Sign Language (ISL) gestures from text, audio, and video inputs.
+      </p>
+
+      <p>
+        The platform allows users to upload <strong>text, PDF documents, or audio files</strong>, which are processed and converted into ISL gestures through a multi-stage pipeline that includes <em>speech-to-text</em>, <em>ISL grammar parsing</em>, and <em>avatar-based animation rendering</em>. The system leverages tools like Stanford NLP and spaCy for linguistic analysis, and <strong>CWASA</strong> players for SiGML-based avatar playback.
+      </p>
+
+      <p>
+        Our goal is to bridge the communication gap and make education more inclusive by enabling real-time, visual sign language interpretations of academic material. Whether it's school textbooks, spoken lectures, or training videos, <strong>Sign Bridge</strong> ensures that every learner can access knowledge equally and effectively.
+      </p>
+
+      <p class="citation">
+        📘 Referenced in: <em>"Sign Bridge: Indian Sign Language Generation"</em> – IEEE Conference Submission 2024
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>

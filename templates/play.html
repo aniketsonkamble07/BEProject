@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Video player</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/videoplayer.css') }}">
+
+    <!-- CWASA CSS and JS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cwasa.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/allcsa.js') }}"></script>
+
+    <meta http-equiv="Access-Control-Allow-Methods" content="GET">
+
+    <style type="text/css">
+        body {
+            overflow-y: hidden !important;
+            overflow-x: hidden !important;
+        }
+    </style>
+
+    <script language="javascript">
+        var initCfg = {
+            "avsbsl": ["anna"],
+            "avSettings": { "avList": "avsbsl", "initAv": "marc" }
+        };
+
+        var sigmlList = null;
+        var tuavatarLoaded = false;
+        var playerAvailableToPlay = true;
+
+        const sigmlPathFromServer = "{{ sigml_file }}";
+
+        window.onload = function () {
+            CWASA.init(initCfg);
+            setSiGMLURL(sigmlPathFromServer);
+        };
+
+        function setSiGMLURL(sigmlURL) {
+            const loc = window.location.href;
+            const locDir = loc.substring(0, loc.lastIndexOf('/'));
+            sigmlURL = locDir + "/" + sigmlURL;
+            document.getElementById("URLText").value = sigmlURL;
+            return sigmlURL;
+        }
+
+        function startPlayer() {
+            const sigmlURL = document.getElementById("URLText").value;
+            CWASA.getLogger("myLog", "warn");
+            CWASA.playSiGMLURL(sigmlURL);
+        }
+
+        function stopPlayer() {
+            CWASA.getLogger("myLog", "warn");
+            CWASA.stop();
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="container mt-4">
+            <!-- Animation Player -->
+            <div class="player card p-3">
+                <a id="player"></a>
+                <div class="video-wrapper">
+                    <video id="videoElement" controls style="width: 100%; max-height: 500px; border-radius: 10px; object-fit: contain;">
+                        <source src="{{ url_for('static', filename='video/sampledvdo2.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                    
+                    <!-- Avatar floating over video -->
+                    <div class="corner-avatar">
+                        <div class="CWASAAvatar av0"></div>
+                    </div>
+                </div>
+                
+                
+                <input type="text" id="URLText" class="txtSiGMLURL av0 d-none" value="" />
+                
+                
+
+            <!-- Custom Play/Pause Buttons -->
+            <div class="text-center mt-4">
+                <button id="playButton" class="btn btn-success me-2">Play</button>
+                <button id="pauseButton" class="btn btn-danger">Pause</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional: Your own script.js -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Button Logic -->
+    <script>
+        const video = document.getElementById("videoElement");
+        let sigmlTimeline = [];
+        const animationPlayed = {};
+        let pausedTime = 0;
+    
+        // Fetch timeline from backend
+        fetch('/get_sigml_timeline')
+            .then(response => response.json())
+            .then(data => {
+                sigmlTimeline = data;
+                console.log("Loaded timeline:", sigmlTimeline);
+            });
+    
+        function getSiGMLURL() {
+            return document.getElementById("URLText").value;
+        }
+    
+        // Sync animation with video
+        video.addEventListener("timeupdate", function () {
+            const currentTime = Math.floor(video.currentTime);
+    
+            sigmlTimeline.forEach(({ time, file }) => {
+                if (currentTime === time && !animationPlayed[time]) {
+                    const fullPath = window.location.origin + '/' + file;
+                    document.getElementById("URLText").value = fullPath;
+                    CWASA.playSiGMLURL(fullPath);
+                    animationPlayed[time] = true;
+                }
+    
+                if (currentTime < time) {
+                    animationPlayed[time] = false;
+                }
+            });
+        });
+    
+        document.getElementById("playButton").addEventListener("click", function () {
+            video.currentTime = pausedTime;
+            video.play();
+        });
+    
+        document.getElementById("pauseButton").addEventListener("click", function () {
+            video.pause();
+            pausedTime = video.currentTime;
+            CWASA.stop();
+        });
+    </script>
+    
+</body>
+</html> 
