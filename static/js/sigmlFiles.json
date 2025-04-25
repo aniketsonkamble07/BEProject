@@ -1,1 +1,142 @@
-[]
+[
+  {
+    "word": "water",
+    "file": "/static/SignFiles/water.sigml",
+    "time": 0
+  },
+  {
+    "word": "hello",
+    "file": "/static/SignFiles/hello.sigml",
+    "time": 3
+  },
+  {
+    "word": "today",
+    "file": "/static/SignFiles/today.sigml",
+    "time": 6
+  },
+  {
+    "word": "learning",
+    "file": "/static/SignFiles/learning.sigml",
+    "time": 9
+  },
+  {
+    "word": "important",
+    "file": "/static/SignFiles/important.sigml",
+    "time": 12
+  },
+  {
+    "word": "every",
+    "file": "/static/SignFiles/every.sigml",
+    "time": 15
+  },
+  {
+    "word": "day",
+    "file": "/static/SignFiles/day.sigml",
+    "time": 18
+  },
+  {
+    "word": "morning",
+    "file": "/static/SignFiles/morning.sigml",
+    "time": 21
+  },
+  {
+    "word": "afternoon",
+    "file": "/static/SignFiles/afternoon.sigml",
+    "time": 24
+  },
+  {
+    "word": "night",
+    "file": "/static/SignFiles/night.sigml",
+    "time": 27
+  },
+  {
+    "word": "drink",
+    "file": "/static/SignFiles/drink.sigml",
+    "time": 30
+  },
+  {
+    "word": "rain",
+    "file": "/static/SignFiles/rain.sigml",
+    "time": 33
+  },
+  {
+    "word": "gives",
+    "file": "/static/SignFiles/gives.sigml",
+    "time": 36
+  },
+  {
+    "word": "use",
+    "file": "/static/SignFiles/use.sigml",
+    "time": 39
+  },
+  {
+    "word": "cook",
+    "file": "/static/SignFiles/cook.sigml",
+    "time": 42
+  },
+  {
+    "word": "wash",
+    "file": "/static/SignFiles/wash.sigml",
+    "time": 45
+  },
+  {
+    "word": "animals",
+    "file": "/static/SignFiles/animals.sigml",
+    "time": 48
+  },
+  {
+    "word": "people",
+    "file": "/static/SignFiles/people.sigml",
+    "time": 51
+  },
+  {
+    "word": "need",
+    "file": "/static/SignFiles/need.sigml",
+    "time": 54
+  },
+  {
+    "word": "thirsty",
+    "file": "/static/SignFiles/thirsty.sigml",
+    "time": 57
+  },
+  {
+    "word": "feel",
+    "file": "/static/SignFiles/feel.sigml",
+    "time": 60
+  },
+  {
+    "word": "sometime",
+    "file": "/static/SignFiles/sometime.sigml",
+    "time": 63
+  },
+  {
+    "word": "river",
+    "file": "/static/SignFiles/river.sigml",
+    "time": 66
+  },
+  {
+    "word": "tube",
+    "file": "/static/SignFiles/tube.sigml",
+    "time": 69
+  },
+  {
+    "word": "come",
+    "file": "/static/SignFiles/come.sigml",
+    "time": 72
+  },
+  {
+    "word": "waste",
+    "file": "/static/SignFiles/waste.sigml",
+    "time": 75
+  },
+  {
+    "word": "save",
+    "file": "/static/SignFiles/save.sigml",
+    "time": 78
+  },
+  {
+    "word": "thank",
+    "file": "/static/SignFiles/thank.sigml",
+    "time": 81
+  }
+]
